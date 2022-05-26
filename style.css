@@ -1,0 +1,345 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Supermercado One', cursive;
+}
+section {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gameboard {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px; 
+    border: 2px solid #CCC;
+}
+.cell {
+    flex: 0 0 10%;
+    width: 10%;
+    height: 10%;
+    outline: 1px solid rgba(128,128,128,0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Tahoma;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(0,0,0,0.2);
+    color: transparent;
+}
+.head {
+    position: relative;
+    /*background-color: #97e3c2;*/
+    background-color: #99c3ec;
+}
+.body {
+    background-color: #99c3ec;
+}
+.tail {
+    position: relative;
+    /*background-color: #f69c9e;*/
+}
+
+/* Head */
+.head.right {
+    border-radius: 0 20% 20% 0;
+}
+.head.left {
+    border-radius: 20% 0 0 20%;
+}
+.head.up {
+    border-radius: 20% 20% 0 0;
+}
+.head.down {
+    border-radius: 0 0 20% 20%;
+}
+
+.head::before,
+.head::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: black;
+}
+
+/* Head Right */
+.head.right::before,
+.head.right::after {
+    right: 5px;
+}
+
+/* Head Left */
+.head.left::before,
+.head.left::after {
+    left: 5px;
+}
+
+/* Head Left or Right */
+.head.left:before,
+.head.right:before {
+    top: 10px;
+}
+.head.left:after,
+.head.right:after {
+    bottom: 10px;
+}
+
+/* Head Up */
+.head.up::before,
+.head.up::after {
+    top: 5px;
+}
+
+/* Head Down */
+.head.down::before,
+.head.down::after {
+    bottom: 5px;
+}
+
+/* Head Up or Down */
+.head.up:before,
+.head.down:before {
+    left: 10px;
+}
+.head.up:after,
+.head.down:after {
+    right: 10px;
+}
+
+
+/* Tail */
+.tail::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    border: 24px solid transparent;
+}
+
+/* Tail Right */
+.tail.right::after {
+    border-right-color: #99c3ec;
+}
+/* Tail Left */
+.tail.left::after {
+    border-left-color: #99c3ec;
+}
+/* Tail Up */
+.tail.up::after {
+    border-top-color: #99c3ec;
+}
+/* Tail Down */
+.tail.down::after {
+    border-bottom-color: #99c3ec;
+}
+
+/* Bend */
+.bend-upleft,
+.bend-leftup {
+    border-radius: 0 0 10px 0;
+}
+.bend-upright,
+.bend-rightup {
+    border-radius: 0 0 0 10px;
+}
+.bend-downleft,
+.bend-leftdown {
+    border-radius: 0 10px 0 0;
+}
+.bend-downright,
+.bend-rightdown {
+    border-radius: 10px 0 0 0;
+}
+
+/* apple */
+.apple {
+    background: red;
+    border-radius: 50%;
+    position: relative;
+}
+
+.apple::after{
+    position: absolute;
+    content:"";
+    width: 20px;
+    height: 20px;
+    border-radius: 50% 0 50% 0;
+    background: green;
+    top: 1px;
+    right: 1px;
+}
+
+.buttons{
+    display: none;
+}
+/* button.left {
+}
+button.down {
+}
+button.right {
+} */
+/* start menu */
+.popup.invisible {
+    display: none;
+  }
+
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background: rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .popupText {
+    width: 90%;
+    max-width: 400px;
+    background: #eeeeee;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2)
+  }
+
+  .gameOver {
+    font-size: 45px;
+    padding-bottom: 15px;
+  }
+  .startGame {
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      max-width: fit-content;
+      margin: auto;
+      margin-bottom: 10px;
+      transition: transform 0.2s;
+  }
+
+  .startGame:hover,
+  .icon-left:hover,
+  .icon-right:hover {
+     transform: scale(1.2); 
+  }
+
+  .snakeContainer{
+    display: flex;
+    justify-content: center;
+  }
+  .icon-left,
+  .icon-right {
+      font-size: 25px;
+      transition: transform 0.2s;
+      margin: 25px;
+  }
+
+   
+  .snake {
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 150px;
+    height: 50px;
+    background-color: #99c3ec;
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+  }
+
+  .snake::before,
+  .snake::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: black;
+    right: 5px;
+}
+
+.snake::before{
+    top: 10px;
+}
+
+.snake::after{
+    bottom: 10px;
+}
+
+.snake .tail{
+    position:absolute;
+    left: -48px;
+}
+
+/* mobile compatability */
+@media all and (max-width: 500px){
+    .gameboard {
+      width: 350px;
+      height: 350px;
+    }
+    .cell.tail::after {
+        border: 17px solid transparent;
+    }
+
+    .head::before,
+    .head::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: black;
+    }
+    /* Tail Right */
+    .tail.right::after {
+        border-right-color: #99c3ec;
+    }
+    /* Tail Left */
+    .tail.left::after {
+        border-left-color: #99c3ec;
+    }
+    /* Tail Up */
+    .tail.up::after {
+        border-top-color: #99c3ec;
+    }
+    /* Tail Down */
+    .tail.down::after {
+        border-bottom-color: #99c3ec;
+    }
+    .apple::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        width: 150px;
+        margin-top: 20px;
+    }
+    .buttons button {
+        display: block;
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
+        font-family: 'Supermercado One', cursive;
+        text-align: center;
+    }
+    button.up {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+  }
