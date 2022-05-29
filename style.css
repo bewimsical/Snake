@@ -3,6 +3,14 @@ html,body {
     padding: 0;
     font-family: 'Supermercado One', cursive;
 }
+
+.infoPanel{
+    display:flex;
+    margin: 10px 5px;
+}
+.score{
+    margin-right:20px;
+}
 section {
     padding: 10px;
     display: flex;
@@ -189,6 +197,9 @@ button.down {
 button.right {
 } */
 /* start menu */
+
+
+/* Start menu pop up */
 .popup.invisible {
     display: none;
   }
@@ -219,7 +230,8 @@ button.right {
     font-size: 45px;
     padding-bottom: 15px;
   }
-  .startGame {
+  .startGame,
+  .homeButton {
       padding: 10px;
       border: 1px solid black;
       border-radius: 5px;
@@ -227,9 +239,19 @@ button.right {
       margin: auto;
       margin-bottom: 10px;
       transition: transform 0.2s;
+      cursor: pointer;
   }
+  .homeButton {
+    font-size: 16px;
+    text-align: left;
+    margin-left: 10px;
+    color: black;
+    text-decoration: none;
+    z-index: 2;
+}
 
   .startGame:hover,
+  .homeButton:hover,
   .icon-left:hover,
   .icon-right:hover {
      transform: scale(1.2); 
@@ -244,6 +266,7 @@ button.right {
       font-size: 25px;
       transition: transform 0.2s;
       margin: 25px;
+      cursor: pointer;
   }
 
    

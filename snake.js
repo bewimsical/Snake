@@ -49,11 +49,14 @@ class Snake {
 			new Segment(0, 'tail', 'right'),
 		]
 
+		this.score = 0
+		this.numOfSeg = this.segments.length
+
 		this.direction = 'right'
 		
 		
 		// Default movement delay
-		this.delay = 250
+		this.delay = 300
 
 		// Move snake
 		this.playing = true
@@ -104,14 +107,21 @@ class Snake {
 		}
 
 		// Check for apple & eat apple
+		let ateApple = false;
 		if (document.querySelectorAll('.cell')[head].classList.contains('apple')){
 			document.querySelectorAll('.cell')[head].classList.remove('apple')
+			ateApple = true;
 			//remove old tail
 			this.segments[this.segments.length-1].type = 'body'
 			// add new tail
 			this.segments.push(new Segment(this.segments[this.segments.length-1].cell + 1, 'tail', this.direction))
+			//update score values
+			this.score += 10
+			this.numOfSeg = this.segments.length
+			this.delay *= 0.95
+			console.log(this.delay)
+			this.updateSpeed()
 			this.eatApple()
-			this.drawApple()
 		}
 
 		if (this.playing) {
@@ -131,6 +141,12 @@ class Snake {
 
 		// Draw snake
 		this.drawSnake()
+
+		if (ateApple){
+			this.drawApple()
+		}
+		
+		this.updateScore()
 	}
 
 	setDirection(dir) {
@@ -200,6 +216,19 @@ class Snake {
 	}
 	eatApple() {
 		console.log('mm tasty apple')
+		
+	}
+	updateSpeed(){
+		clearInterval(this.gameLoop)
+		this.gameLoop = setInterval(() => {
+			this.moveSnake()
+		}, this.delay)
+	}
+
+	updateScore(){
+		document.querySelector('.scoreValue').innerText = this.score
+		document.querySelector('.lengthValue').innerText = this.numOfSeg
+
 	}
 
 	drawApple() {
