@@ -42,11 +42,31 @@ section {
 .head {
     position: relative;
     /*background-color: #97e3c2;*/
-    background-color: #99c3ec;
+    
 }
-.body {
-    background-color: #99c3ec;
+/* color changer */
+body.blue .head,
+body.blue .body{
+  background-color: #99c3ec;
+} 
+
+body.yellow .head,
+body.yellow .body{
+  background-color: yellow;
 }
+
+body.pink .head,
+body.pink .body{
+  background-color: pink;
+}
+
+body.green .head,
+body.green .body{
+  background-color: green;
+}
+
+
+
 .tail {
     position: relative;
     /*background-color: #f69c9e;*/
@@ -135,20 +155,57 @@ section {
 }
 
 /* Tail Right */
-.tail.right::after {
+body.blue .tail.right::after {
     border-right-color: #99c3ec;
 }
+body.yellow .tail.right::after {
+    border-right-color: yellow;
+}
+body.pink .tail.right::after {
+    border-right-color: pink;
+}
+body.green .tail.right::after {
+    border-right-color: green;
+}
+
 /* Tail Left */
-.tail.left::after {
+body.blue .tail.left::after {
     border-left-color: #99c3ec;
 }
+body.yellow .tail.left::after {
+    border-left-color: yellow;
+}
+body.pink .tail.left::after {
+    border-left-color: pink;
+}
+body.green .tail.left::after {
+    border-left-color: green;
+}
 /* Tail Up */
-.tail.up::after {
+body.blue .tail.up::after {
     border-top-color: #99c3ec;
 }
+body.yellow .tail.up::after {
+    border-top-color: yellow;
+}
+body.pink .tail.up::after {
+    border-top-color: pink;
+}
+body.green .tail.up::after {
+    border-top-color: green;
+}
 /* Tail Down */
-.tail.down::after {
+body.blue .tail.down::after {
     border-bottom-color: #99c3ec;
+}
+body.yellow .tail.down::after {
+    border-bottom-color: yellow;
+}
+body.pink .tail.down::after {
+    border-bottom-color: pink;
+}
+body.green .tail.down::after {
+    border-bottom-color: green;
 }
 
 /* Bend */
@@ -281,6 +338,19 @@ button.right {
     position: relative;
   }
 
+body.yellow .snake{
+  background-color: yellow;
+}
+
+body.pink .snake{
+  background-color: pink;
+}
+
+body.green .snake{
+  background-color: green;
+}
+
+
   .snake::before,
   .snake::after {
     position: absolute;
@@ -292,6 +362,7 @@ button.right {
     background: black;
     right: 5px;
 }
+
 
 .snake::before{
     top: 10px;
@@ -305,6 +376,8 @@ button.right {
     position:absolute;
     left: -48px;
 }
+
+
 
 /* mobile compatability */
 @media all and (max-width: 500px){
