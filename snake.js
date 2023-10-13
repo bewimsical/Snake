@@ -1,8 +1,46 @@
 console.log('SNAKE LOADED')
+ 
+
+document.querySelector(".icon-right").addEventListener('click', () => {
+    changeColor("right");
+})
+document.querySelector(".icon-left").addEventListener('click', () => {
+    changeColor("left");
+})
+
+//change the color of the snake
+let colors =['blue', 'yellow', 'pink', 'green']
+let colorIndex = 0
+
+function changeColor(direction){
+    let body = document.querySelector('body');
+    body.classList.remove(...colors)
+    let newIndex = colorIndex;
+    switch (direction) {
+        case "left":
+            newIndex--;
+            break;
+        case "right":
+            newIndex++;
+            break;
+    }
+    if (newIndex < 0) {
+        newIndex = colors.length - 1;
+    }
+    if (newIndex >= colors.length) {
+        newIndex = 0;
+    }
+    body.classList.add(colors[newIndex]);
+    colorIndex = newIndex;
+}
+
 document.querySelector('.startGame').addEventListener('click', startGame)
 function startGame(){
+  let snake = new Snake()
 	document.querySelector('.popup').classList.add('invisible')
-	let snake = new Snake()
+	
+  
+
 
 	let directions = ['up','left','down','right']
 		directions.forEach((dir) => {
@@ -37,10 +75,11 @@ function startGame(){
 			// Cancel the default action to avoid it being handled twice
 			 event.preventDefault();
 		}, true);
-
+//places first apple
 	document.querySelectorAll('.cell')[Math.floor(Math.random()*96)+3].classList.add('apple')
 }
 
+  
 class Snake {
 	constructor() {
 		this.segments = [
@@ -121,6 +160,7 @@ class Snake {
 			this.delay *= 0.95
 			console.log(this.delay)
 			this.updateSpeed()
+      console.log(this.delay)
 			this.eatApple()
 		}
 
