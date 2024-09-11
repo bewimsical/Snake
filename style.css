@@ -2,97 +2,97 @@ html,body {
     margin: 0;
     padding: 0;
     font-family: 'Tektur', sans-serif;
-}
-
-h1{
+  }
+  
+  h1{
     font-weight: 800;
     font-size: 3em;
-}
-
-.infoPanel{
+  }
+  
+  .infoPanel{
     display:flex;
     margin: 10px 5px;
-}
-.score{
+  }
+  .score{
     margin-right:20px;
-}
-section {
+  }
+  section {
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.gameboard {
+  }
+  .gameboard {
     display: flex;
     flex-wrap: wrap;
     width: 500px;
     height: 500px; 
     border: 2px solid #CCC;
-}
-.cell {
+  }
+  .cell {
     flex: 0 0 10%;
     width: 10%;
     height: 10%;
     outline: 1px solid rgba(128,128,128,0.1);
-
+  
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Tahoma;
+    /* font-family: Tahoma;
     font-size: 12px;
     text-align: center;
     color: rgba(0,0,0,0.2);
-    color: transparent;
-}
-.head {
+    color: transparent; */
+  }
+  .head {
     position: relative;
     /*background-color: #97e3c2;*/
-    
-}
-/* color changer */
-body.blue .head,
-body.blue .body{
-  background-color: #99c3ec;
-} 
-
-body.yellow .head,
-body.yellow .body{
-  background-color: yellow;
-}
-
-body.pink .head,
-body.pink .body{
-  background-color: pink;
-}
-
-body.green .head,
-body.green .body{
-  background-color: green;
-}
-
-
-
-.tail {
+  
+  }
+  /* color changer */
+  body.blue .head,
+  body.blue .body{
+  background-color: #70DAE5;
+  } 
+  
+  body.yellow .head,
+  body.yellow .body{
+  background-color: #FFD233;
+  }
+  
+  body.pink .head,
+  body.pink .body{
+  background-color: #E64AA5;
+  }
+  
+  body.green .head,
+  body.green .body{
+  background-color: #32853C;
+  }
+  
+  
+  
+  .tail {
     position: relative;
     /*background-color: #f69c9e;*/
-}
-
-/* Head */
-.head.right {
+  }
+  
+  /* Head */
+  .head.right {
     border-radius: 0 20% 20% 0;
-}
-.head.left {
+  }
+  .head.left {
     border-radius: 20% 0 0 20%;
-}
-.head.up {
+  }
+  .head.up {
     border-radius: 20% 20% 0 0;
-}
-.head.down {
+  }
+  .head.down {
     border-radius: 0 0 20% 20%;
-}
-
-.head::before,
-.head::after {
+  }
+  
+  .head::before,
+  .head::after {
     position: absolute;
     content: "";
     display: block;
@@ -100,55 +100,55 @@ body.green .body{
     height: 4px;
     border-radius: 2px;
     background: black;
-}
-
-/* Head Right */
-.head.right::before,
-.head.right::after {
+  }
+  
+  /* Head Right */
+  .head.right::before,
+  .head.right::after {
     right: 5px;
-}
-
-/* Head Left */
-.head.left::before,
-.head.left::after {
+  }
+  
+  /* Head Left */
+  .head.left::before,
+  .head.left::after {
     left: 5px;
-}
-
-/* Head Left or Right */
-.head.left:before,
-.head.right:before {
+  }
+  
+  /* Head Left or Right */
+  .head.left:before,
+  .head.right:before {
     top: 10px;
-}
-.head.left:after,
-.head.right:after {
+  }
+  .head.left:after,
+  .head.right:after {
     bottom: 10px;
-}
-
-/* Head Up */
-.head.up::before,
-.head.up::after {
+  }
+  
+  /* Head Up */
+  .head.up::before,
+  .head.up::after {
     top: 5px;
-}
-
-/* Head Down */
-.head.down::before,
-.head.down::after {
+  }
+  
+  /* Head Down */
+  .head.down::before,
+  .head.down::after {
     bottom: 5px;
-}
-
-/* Head Up or Down */
-.head.up:before,
-.head.down:before {
+  }
+  
+  /* Head Up or Down */
+  .head.up:before,
+  .head.down:before {
     left: 10px;
-}
-.head.up:after,
-.head.down:after {
+  }
+  .head.up:after,
+  .head.down:after {
     right: 10px;
-}
-
-
-/* Tail */
-.tail::after {
+  }
+  
+  
+  /* Tail */
+  .tail::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -157,88 +157,88 @@ body.green .body{
     content: "";
     display: block;
     border: 24px solid transparent;
-}
-
-/* Tail Right */
-body.blue .tail.right::after {
-    border-right-color: #99c3ec;
-}
-body.yellow .tail.right::after {
-    border-right-color: yellow;
-}
-body.pink .tail.right::after {
-    border-right-color: pink;
-}
-body.green .tail.right::after {
-    border-right-color: green;
-}
-
-/* Tail Left */
-body.blue .tail.left::after {
-    border-left-color: #99c3ec;
-}
-body.yellow .tail.left::after {
-    border-left-color: yellow;
-}
-body.pink .tail.left::after {
-    border-left-color: pink;
-}
-body.green .tail.left::after {
-    border-left-color: green;
-}
-/* Tail Up */
-body.blue .tail.up::after {
-    border-top-color: #99c3ec;
-}
-body.yellow .tail.up::after {
-    border-top-color: yellow;
-}
-body.pink .tail.up::after {
-    border-top-color: pink;
-}
-body.green .tail.up::after {
-    border-top-color: green;
-}
-/* Tail Down */
-body.blue .tail.down::after {
-    border-bottom-color: #99c3ec;
-}
-body.yellow .tail.down::after {
-    border-bottom-color: yellow;
-}
-body.pink .tail.down::after {
-    border-bottom-color: pink;
-}
-body.green .tail.down::after {
-    border-bottom-color: green;
-}
-
-/* Bend */
-.bend-upleft,
-.bend-leftup {
+  }
+  
+  /* Tail Right */
+  body.blue .tail.right::after {
+    border-right-color: #70DAE5;
+  }
+  body.yellow .tail.right::after {
+    border-right-color: #FFD233;
+  }
+  body.pink .tail.right::after {
+    border-right-color: #E64AA5;
+  }
+  body.green .tail.right::after {
+    border-right-color: #32853C;
+  }
+  
+  /* Tail Left */
+  body.blue .tail.left::after {
+    border-left-color: #70DAE5;
+  }
+  body.yellow .tail.left::after {
+    border-left-color: #FFD233;
+  }
+  body.pink .tail.left::after {
+    border-left-color: #E64AA5;
+  }
+  body.green .tail.left::after {
+    border-left-color: #32853C;
+  }
+  /* Tail Up */
+  body.blue .tail.up::after {
+    border-top-color: #70DAE5;
+  }
+  body.yellow .tail.up::after {
+    border-top-color: #FFD233;
+  }
+  body.pink .tail.up::after {
+    border-top-color: #E64AA5;
+  }
+  body.green .tail.up::after {
+    border-top-color: #32853C;
+  }
+  /* Tail Down */
+  body.blue .tail.down::after {
+    border-bottom-color: #70DAE5;
+  }
+  body.yellow .tail.down::after {
+    border-bottom-color: #FFD233;
+  }
+  body.pink .tail.down::after {
+    border-bottom-color: #E64AA5;
+  }
+  body.green .tail.down::after {
+    border-bottom-color: #32853C;
+  }
+  
+  /* Bend */
+  .bend-upleft,
+  .bend-leftup {
     border-radius: 0 0 10px 0;
-}
-.bend-upright,
-.bend-rightup {
+  }
+  .bend-upright,
+  .bend-rightup {
     border-radius: 0 0 0 10px;
-}
-.bend-downleft,
-.bend-leftdown {
+  }
+  .bend-downleft,
+  .bend-leftdown {
     border-radius: 0 10px 0 0;
-}
-.bend-downright,
-.bend-rightdown {
+  }
+  .bend-downright,
+  .bend-rightdown {
     border-radius: 10px 0 0 0;
-}
-
-/* apple */
-.apple {
+  }
+  
+  /* apple */
+  .apple {
     background: red;
     border-radius: 50%;
     position: relative;
-}
-
-.apple::after{
+  }
+  
+  .apple::after{
     position: absolute;
     content:"";
     width: 20px;
@@ -247,26 +247,18 @@ body.green .tail.down::after {
     background: green;
     top: 1px;
     right: 1px;
-}
-
-.buttons{
-    display: none;
-}
-/* button.left {
-}
-button.down {
-}
-button.right {
-} */
-/* start menu */
-
-
-/* Start menu pop up */
-.popup.invisible {
+  }
+  
+  .buttons{
     display: none;
   }
-
-.popup {
+  
+  /* Start menu pop up */
+  .popup.invisible {
+    display: none;
+  }
+  
+  .popup {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -277,7 +269,7 @@ button.right {
     justify-content: center;
     align-items: center;
   }
-
+  
   .popupText {
     width: 90%;
     max-width: 400px;
@@ -287,38 +279,27 @@ button.right {
     text-align: center;
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2)
   }
-
+  
   .gameOver {
     font-size: 45px;
     padding-bottom: 15px;
   }
+  
   .startGame,
-  .homeButton {
-      padding: 10px;
-      border: 1px solid black;
-      border-radius: 5px;
-      max-width: fit-content;
-      margin: auto;
-      margin-bottom: 10px;
-      transition: transform 0.2s;
-      cursor: pointer;
-  }
-  .homeButton {
-    font-size: 16px;
-    text-align: left;
-    margin-left: 10px;
-    color: black;
-    text-decoration: none;
-    z-index: 2;
-}
-
   .startGame:hover,
-  .homeButton:hover,
   .icon-left:hover,
   .icon-right:hover {
      transform: scale(1.2); 
   }
-
+  
+  .startGame{
+    cursor: pointer;
+  }
+  
+  .startGame:hover{
+    font-weight: bold;
+  }
+  
   .snakeContainer{
     display: flex;
     justify-content: center;
@@ -330,32 +311,32 @@ button.right {
       margin: 25px;
       cursor: pointer;
   }
-
-   
+  
+  
   .snake {
     margin-top: 10px;
     margin-left: 15px;
     width: 150px;
     height: 50px;
-    background-color: #99c3ec;
+    background-color: #70DAE5;
     text-align: center;
     border-radius: 0 10px 10px 0;
     position: relative;
   }
-
-body.yellow .snake{
-  background-color: yellow;
-}
-
-body.pink .snake{
-  background-color: pink;
-}
-
-body.green .snake{
-  background-color: green;
-}
-
-
+  
+  body.yellow .snake{
+  background-color: #FFD233;
+  }
+  
+  body.pink .snake{
+  background-color: #E64AA5;
+  }
+  
+  body.green .snake{
+  background-color: #32853C;
+  }
+  
+  
   .snake::before,
   .snake::after {
     position: absolute;
@@ -366,26 +347,26 @@ body.green .snake{
     border-radius: 2px;
     background: black;
     right: 5px;
-}
-
-
-.snake::before{
+  }
+  
+  
+  .snake::before{
     top: 10px;
-}
-
-.snake::after{
+  }
+  
+  .snake::after{
     bottom: 10px;
-}
-
-.snake .tail{
+  }
+  
+  .snake .tail{
     position:absolute;
     left: -48px;
-}
-
-
-
-/* mobile compatability */
-@media all and (max-width: 500px){
+  }
+  
+  
+  
+  /* mobile compatability */
+  @media all and (max-width: 500px){
     .gameboard {
       width: 350px;
       height: 350px;
@@ -393,7 +374,7 @@ body.green .snake{
     .cell.tail::after {
         border: 17px solid transparent;
     }
-
+  
     .head::before,
     .head::after {
     position: absolute;
@@ -424,7 +405,7 @@ body.green .snake{
         width: 14px;
         height: 14px;
     }
-
+  
     .buttons {
         display: flex;
         flex-wrap: wrap;
@@ -436,7 +417,7 @@ body.green .snake{
         width: 50px;
         height: 50px;
         font-size: 14px;
-        font-family: 'Supermercado One', cursive;
+        font-family: 'Tektur', sans-serif;
         text-align: center;
     }
     button.up {
